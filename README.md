@@ -1,4 +1,5 @@
-# 🏠 ESP32-CAM Based Smart Home System
+<p>
+ # 🏠 ESP32-CAM Based Smart Home System
 ### Final IoT Project
 
 A modern **Internet of Things** smart home dashboard built on **ESP32-CAM** that enables users to control virtual devices and camera features using **natural language commands (text, voice, and image)** supported by artificial intelligence.
@@ -171,4 +172,6 @@ Cloud deployment
 It  is designed to be scalable, modern, and user-friendly.
 
 ⭐ Thank you for reviewing this project.
-   
+     
+</p>
+
