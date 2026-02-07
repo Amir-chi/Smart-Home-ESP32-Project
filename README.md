@@ -1,177 +1,264 @@
-<p>
- # 🏠 ESP32-CAM Based Smart Home System
-### Final IoT Project
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>ESP32-CAM Smart Home System - README</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-A modern **Internet of Things** smart home dashboard built on **ESP32-CAM** that enables users to control virtual devices and camera features using **natural language commands (text, voice, and image)** supported by artificial intelligence.
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-This project is developed as a **final project of the Internet of Things (IoT) course**.
+  <!-- Font Awesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
 
---
+  <style>
+    :root {
+      --bg: #0f172a;
+      --card: #111827;
+      --text: #e5e7eb;
+      --muted: #9ca3af;
+      --accent: #38bdf8;
+      --border: #1f2933;
+    }
 
-## 📌 Project Overview
+    * {
+      box-sizing: border-box;
+    }
 
-Traditional smart home systems rely on fixed buttons or predefined commands.
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(120deg, #020617, #0f172a);
+      color: var(--text);
+      line-height: 1.7;
+    }
 
-This project introduces an **AI-based smart home system** that is capable of understanding **natural language commands in Persian and English** and executing them intelligently.
+    .container {
+      max-width: 1000px;
+      margin: auto;
+      padding: 40px 20px 80px;
+    }
 
-Users can interact with the system through:
-- 🌐 Web Dashboard
-- 📝 Text Commands
-- 🎙️ Voice Commands
-- ✋ Visual/Gesture Commands
-- 🤖 Telegram Bot
+    .card {
+      background: rgba(17, 24, 39, 0.75);
+      backdrop-filter: blur(12px);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 32px;
+      margin-bottom: 28px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+    }
 
-The system processes commands using a **Large Language Model (LLM)** and translates them into executable actions for the ESP32-CAM and virtual devices.
+    h1 {
+      font-size: 2.4rem;
+      margin-bottom: 10px;
+    }
 
----
+    h2 {
+      margin-top: 0;
+      color: var(--accent);
+    }
 
-## ✨ Features
+    h3 {
+      margin-top: 30px;
+    }
 
-- 🌐 **Web-based UI**
-- Modern and responsive dashboard
-- Command input box
-- Device status visualization
+    p {
+      color: var(--text);
+      margin: 10px 0;
+    }
 
-- 🧠 **AI command processing**
-- Natural language understanding using LLM APIs
-- Support for Persian and English commands
-- Intelligent command parsing (intent and device extraction)
+    ul {
+      padding-left: 22px;
+    }
 
-- 💡 **Virtual lamp control**
-- 3 independent virtual lamps
-- Visual on/off mode with animations
-- Control via AI commands
+    li {
+      margin: 8px 0;
+    }
 
-- 📸 **ESP32-CAM photo capture**
-- Capture images from the camera
-- Display the last captured image on the dashboard
+    .subtitle {
+      color: var(--muted);
+      font-size: 1.1rem;
+      margin-bottom: 25px;
+    }
 
-- 🔦 **Camera flash control**
-- Turn on/off the flash using AI commands
-- Real-time visual feedback in the user interface
+    .icon {
+      color: var(--accent);
+      margin-right: 8px;
+    }
 
----
+    .stack {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
+      margin-top: 20px;
+    }
 
-### ⭐ Additional features
+    .stack div {
+      background: #020617;
+      border-radius: 14px;
+      padding: 18px;
+      border: 1px solid var(--border);
+    }
 
-- 🎙️ **Voice command control**
-- Speech-to-text processing
-- AI-based command interpretation
+    .footer {
+      text-align: center;
+      margin-top: 40px;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
 
-- ✋ **Image/Gesture Based Commands**
-Hand Gesture Recognition Using Vision AI
-- Gesture-to-Action Mapping (e.g. Finger Counting)
+    hr {
+      border: none;
+      height: 1px;
+      background: var(--border);
+      margin: 30px 0;
+    }
 
-- 🤖 **Integration with Telegram Bot**
-Control Devices via Telegram Messages
-Receive Status Updates and Images
+    code {
+      background: #020617;
+      padding: 4px 8px;
+      border-radius: 6px;
+      font-size: 0.9rem;
+      color: var(--accent);
+    }
+  </style>
+</head>
 
-- 📷 **Advanced Camera Settings**
-- Image Resolution Control
-- Camera Configuration Options
+<body>
+  <div class="container">
 
-- 🗄️ **Database Integration**
-Save Command History
-- Save Metadata of Captured Images
+    <div class="card">
+      <h1>🏠 ESP32-CAM Based Smart Home System</h1>
+      <div class="subtitle">Final IoT Project</div>
 
-- 🖌️ **Advanced UI/UX Design**
-- Dark Mode and Light Mode
-- Glassmorphism/Soft Shadow Cards
-- Smooth Animations and Transitions
-- Fully Responsive (Mobile/Tablet/Desktop)
+      <p>
+        A modern <strong>Internet of Things</strong> smart home dashboard built on
+        <strong>ESP32-CAM</strong> that enables users to control virtual devices and
+        camera features using <strong>natural language commands (text, voice, and image)</strong>
+        supported by artificial intelligence.
+      </p>
 
----
+      <p>
+        This project is developed as a <strong>final project of the Internet of Things (IoT) course</strong>.
+      </p>
+    </div>
 
-## 🧱 System Architecture
+    <div class="card">
+      <h2>📌 Project Overview</h2>
 
-The system follows a **Client-Server** architecture:
+      <p>
+        Traditional smart home systems rely on fixed buttons or predefined commands.
+      </p>
 
-User Interface (Web / Telegram / Voice / Image)
-↓
-Python Server (API)
-↓
-AI Service (LLM / Vision)
-↓
-ESP32-CAM
+      <p>
+        This project introduces an <strong>AI-based smart home system</strong> capable of understanding
+        <strong>natural language commands in Persian and English</strong> and executing them intelligently.
+      </p>
 
+      <ul>
+        <li><i class="icon fa-solid fa-globe"></i>Web Dashboard</li>
+        <li><i class="icon fa-solid fa-keyboard"></i>Text Commands</li>
+        <li><i class="icon fa-solid fa-microphone"></i>Voice Commands</li>
+        <li><i class="icon fa-solid fa-hand"></i>Visual / Gesture Commands</li>
+        <li><i class="icon fa-brands fa-telegram"></i>Telegram Bot</li>
+      </ul>
+    </div>
 
-### Responsibilities
+    <div class="card">
+      <h2>✨ Features</h2>
 
-#### ESP32-CAM
-- Camera image capture
-- Flash control
-- Wi-Fi communication (Station + Access Point modes)
+      <ul>
+        <li>🌐 Web-based UI with modern and responsive dashboard</li>
+        <li>🧠 AI command processing using LLM APIs</li>
+        <li>💡 Control of 3 independent virtual lamps with animations</li>
+        <li>📸 ESP32-CAM image capture and display</li>
+        <li>🔦 Camera flash ON/OFF control with real-time feedback</li>
+      </ul>
 
-#### Python Server (Production Server)
-- API endpoints for commands
-- AI request handling
-- Device state management
-- Database operations
+      <hr>
 
----
+      <h3>⭐ Additional Features</h3>
 
-## 🧠 AI Command Processing Flow
+      <ul>
+        <li>🎙️ Voice command support (Speech-to-Text)</li>
+        <li>✋ Gesture-based control using Vision AI</li>
+        <li>🤖 Telegram Bot integration</li>
+        <li>📷 Advanced camera settings</li>
+        <li>🗄️ Database for command history and image metadata</li>
+        <li>🖌️ Advanced UI/UX with Dark & Light Mode and animations</li>
+      </ul>
+    </div>
 
-1. User sends a command (text / voice / image)
-2. Command is sent to AI API (LLM)
-3. AI extracts structured intent
-4.Server executes the corresponding action
-5.UI updates in real time
+    <div class="card">
+      <h2>🧱 System Architecture</h2>
 
-## 🛠️ Technology Stack
+      <p><strong>Client–Server Architecture:</strong></p>
 
-Hardware
-ESP32-CAM
+      <p>
+        User Interface → Python Server → AI Services → ESP32-CAM
+      </p>
 
-Backend
-Python (ِDjango / FastAPI)
-RESTful APIs
-Hosted on a real online server
+      <h3>Responsibilities</h3>
 
-Frontend
-HTML, CSS, JavaScript
-Responsive dashboard UI
-Animations & visual feedback
+      <ul>
+        <li><strong>ESP32-CAM:</strong> Camera capture, flash control, Wi-Fi (Station + AP)</li>
+        <li><strong>Python Server:</strong> API handling, AI processing, device states, database</li>
+      </ul>
+    </div>
 
-AI Services
-Large Language Model (LLM)
-Speech-to-Text API
-Vision AI for gesture recognition
+    <div class="card">
+      <h2>🛠️ Technology Stack</h2>
 
-Database
-Used for storing:
-Commands history
-Images metadata
-Device states
+      <div class="stack">
+        <div>
+          <strong>Hardware</strong>
+          <p>ESP32-CAM</p>
+        </div>
+        <div>
+          <strong>Backend</strong>
+          <p>Python (Django / FastAPI)<br>REST APIs<br>Production Server</p>
+        </div>
+        <div>
+          <strong>Frontend</strong>
+          <p>HTML, CSS, JavaScript<br>Responsive UI<br>Animations</p>
+        </div>
+        <div>
+          <strong>AI & Database</strong>
+          <p>LLM<br>Speech-to-Text<br>Vision AI<br>Database Storage</p>
+        </div>
+      </div>
+    </div>
 
-## 🌍 Deployment
-✅ The project is fully deployed on a real server
+    <div class="card">
+      <h2>🌍 Deployment</h2>
 
-✅ No local-only implementation
+      <ul>
+        <li>✅ Fully deployed on a real online server</li>
+        <li>✅ Not a local-only implementation</li>
+        <li>✅ Accessible via web browser</li>
+        <li>✅ Suitable for real-world demonstration</li>
+      </ul>
+    </div>
 
-✅ Accessible via web browser
+    <div class="card">
+      <h2>🎯 Educational Value & Conclusion</h2>
 
-✅ Suitable for real-world demonstration
+      <p>
+        This project demonstrates practical IoT system design, AI integration in embedded systems,
+        real-world client–server architecture, modern UI/UX design, and cloud deployment experience.
+      </p>
 
-🎯 Educational Value
-This project demonstrates:
+      <p>
+        It is a complete, production-level <strong>IoT Smart Home System</strong> designed to be
+        scalable, modern, and user-friendly.
+      </p>
+    </div>
 
-Practical IoT system design
-AI integration in embedded systems
-Real-world client–server architecture
-Modern web UI/UX design
-Cloud deployment experience
+    <div class="footer">
+      ⭐ Thank you for reviewing this project.
+    </div>
 
-✅ Conclusion
-This project is a complete, production-level IoT Smart Home System that successfully combines:
-
-Embedded systems
-Artificial Intelligence
-Web technologies
-Cloud deployment
-It  is designed to be scalable, modern, and user-friendly.
-
-⭐ Thank you for reviewing this project.
-     
-</p>
-
+  </div>
+</body>
+</html>
