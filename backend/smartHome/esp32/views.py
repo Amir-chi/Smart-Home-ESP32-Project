@@ -7,12 +7,11 @@ from asgiref.sync import async_to_sync
 from django.shortcuts import render
 from django.views import View
 from django.http import JsonResponse
-from rest_framework.decorators import api_view
 import logging
 
-from .services import extranct_command_from_picture , extract_command_from_text , extract_command_from_voice , get_text_command
+from .services import extranct_command_from_picture , extract_command_from_text , extract_command_from_voice 
 from .models import Esp32Picture , LedStatus , CommandHistory
-from .utils import set_led_status , send_image_to_group , process_and_send_commands
+from .utils import set_led_status , process_and_send_commands
 
 
 logger = logging.getLogger(__name__)

@@ -4,24 +4,40 @@ from django.core.cache import cache
 import logging
 from django.db.models.signals import post_migrate
 from django.dispatch import receiver
+import base64
+from asgiref.sync import async_to_sync
+from channels.layers import get_channel_layer
 
 logger = logging.getLogger(__name__)
 
 from .models import Esp32Picture
-from .utils import send_image_to_group
 
 
 @receiver(post_save, sender=Esp32Picture)
 def photo_saved_handler(sender, instance, created, **kwargs):
     if created:
         if cache.get("is_bot_online"):
-            
-            try:    
+        
+            channel_layer = get_channel_layer()
 
-                send_image_to_group('bot_group', instance.image)
-                    
-            except Esp32Picture.DoesNotExist:
-                logger.warning("No image found for capture command")
+            image_data = base64.b64encode(instance.image.read()).decode('utf-8')
+            
+            async_to_sync(channel_layer.group_send)(
+                "bot_group",
+                {
+                    'type': 'send_image',
+                    'image': image_data,
+                }
+            )
+
+            async_to_sync(channel_layer.group_send)(
+                    "bot_group",
+                    {
+                        'type': 'send_text',
+                        'message': 'close',
+                    }
+                )
+
                 
                 
                 
